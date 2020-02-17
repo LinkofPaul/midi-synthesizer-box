@@ -22,8 +22,8 @@ void read_Rotary_Encoder(int control_number){
     if(intensity_encoder != prev_intensity_encoder){
         // Send MIDI message to end-device
         midi_control_change(0, control_number, intensity_encoder);
-        prev_intensity_encoder = intensity_encoder;
     }
+    prev_intensity_encoder = intensity_encoder;
 
     delay(2);
     return;
