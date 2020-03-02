@@ -1,3 +1,4 @@
+#include <RotaryEncoder.h>
 // List of buttons and potentiometer
 
 // Switch for toggeling on and off
@@ -28,9 +29,9 @@
 // Rotary Encoder
     const int first_encoder_out = 3;
     const int second_encoder_out = 4;
-    int prev_encoder_state = 0;
+    RotaryEncoder encoder(first_encoder_out, second_encoder_out);
+    long oldPosition = 0;
     int intensity_encoder = 64;
-    int prev_intensity_encoder = 0;
     
 // Buttons
     // Red
@@ -89,9 +90,6 @@ void setup() {
 
     // Start Serial Communication
     Serial.begin(115200);
-
-    // Reads the initial state of the first encoder output
-    prev_encoder_state = digitalRead(first_encoder_out);   
 } 
  
 void loop() {
